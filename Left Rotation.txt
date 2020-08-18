@@ -1,0 +1,42 @@
+#include <stdio.h>  
+
+void Rotate(int a[],int d,int n);
+void leftRotate(int a[],int n); 
+
+void Rotate(int a[],int d,int n) 
+{ 
+    int i; 
+    for(i=0;i<d;i++) 
+    {
+        leftRotate(a, n); 
+    } 
+}
+  
+void leftRotate(int a[], int n) 
+{ 
+    int i,temp = a[0]; 
+    for (i=0; i<n-1; i++) 
+        a[i] = a[i+1]; 
+    a[i] = temp; 
+} 
+  
+void printArray(int a[], int n) 
+{ 
+    int i; 
+    for (i=0; i<n; i++) 
+        printf("%d ", a[i]); 
+} 
+  
+
+int main() 
+{ 
+    int i,n,d,a[100];
+    scanf("%d %d",&n, &d);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    Rotate(a,d,n); 
+    printArray(a,n); 
+    return 0; 
+} 
